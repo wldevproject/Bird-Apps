@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.view.article.DetailArticleActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_banner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/image_view"
+            android:scaleType="center"
+            android:src="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/icon_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_up"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_gradien_up"
+            app:layout_constraintBottom_toTopOf="@+id/top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_gradien_down"
+            app:layout_constraintBottom_toTopOf="@+id/icon_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/bird_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nama Burung"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_size_18"
+            android:theme="@style/poppinsSemibold"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+
+        <TextView
+            android:id="@+id/txt_kategori"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="kategori"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_size_10"
+            android:theme="@style/poppinsSemibold"
+            app:layout_constraintEnd_toStartOf="@+id/txt_user_name"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/bird_name" />
+
+        <TextView
+            android:id="@+id/kategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="@dimen/text_size_10"
+            app:layout_constraintEnd_toEndOf="@+id/txt_kategori"
+            app:layout_constraintStart_toStartOf="@+id/txt_kategori"
+            app:layout_constraintTop_toBottomOf="@+id/txt_kategori" />
+
+        <TextView
+            android:id="@+id/txt_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Penulis"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_size_10"
+            android:theme="@style/poppinsSemibold"
+            app:layout_constraintEnd_toStartOf="@+id/txt_publish"
+            app:layout_constraintStart_toEndOf="@+id/txt_kategori"
+            app:layout_constraintTop_toBottomOf="@+id/bird_name" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="@dimen/text_size_10"
+            app:layout_constraintEnd_toEndOf="@+id/txt_user_name"
+            app:layout_constraintStart_toStartOf="@+id/txt_user_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_user_name" />
+
+        <TextView
+            android:id="@+id/txt_publish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Status Publish"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_size_10"
+            android:theme="@style/poppinsSemibold"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toEndOf="@+id/txt_user_name"
+            app:layout_constraintTop_toBottomOf="@+id/bird_name" />
+
+        <TextView
+            android:id="@+id/publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="@dimen/text_size_10"
+            app:layout_constraintEnd_toEndOf="@+id/txt_publish"
+            app:layout_constraintStart_toStartOf="@+id/txt_publish"
+            app:layout_constraintTop_toBottomOf="@+id/txt_publish" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_separator"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/user_name" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Deskripsi"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_size_12"
+            android:theme="@style/poppinsSemibold"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="@dimen/text_size_11"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_separator"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+        <TextView
+            android:id="@+id/txt_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tanggal Publish"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="@dimen/text_size_10"
+            android:theme="@style/poppinsSemibold"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+        <TextView
+            android:id="@+id/update_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 octo"
+            android:textSize="@dimen/text_size_10"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/txt_update" />
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_arrow"
+            app:layout_constraintBottom_toTopOf="@+id/top"
+            app:layout_constraintStart_toStartOf="@+id/left1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail"
+            android:theme="@style/poppinsSemibold"
+            android:textSize="@dimen/text_size_18"
+            app:layout_constraintBottom_toBottomOf="@+id/view_up"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toTopOf="@+id/img_banner" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="?attr/actionBarSize" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/icon_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

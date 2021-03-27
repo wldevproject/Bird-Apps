@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BirdApps" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/purple</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!--        <item name="android:textColor">@color/white</item>-->
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="fontFamily">@font/poppins</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.BirdApps.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.BirdApps.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="elevation">0dp</item>
+        <!--This line changes the color of text in Toolbar-->
+        <item name="android:textColorPrimary">?attr/colorSecondaryVariant</item>
+        <!--This line changes the color of icons in toolbar (back, overflow menu icons)-->
+        <item name="android:textColorSecondary">?attr/colorSecondaryVariant</item>
+        <item name="android:textColorHint">?attr/colorSecondaryVariant</item>
+    </style>
+
+    <style name="Theme.BirdApps.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="poppinsSemibold">
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="poppinsMedium">
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="poppins">
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+
+    <style name="poppinsLight">
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="colorBase">
+        <item name="android:background">?attr/colorOnPrimary</item>
+    </style>
+</resources>

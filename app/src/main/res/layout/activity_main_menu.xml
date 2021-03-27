@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.MainMenuActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.BirdApps.AppBarOverlay"
+        app:layout_constraintBottom_toTopOf="@+id/top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.BirdApps.PopupOverlay">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:cardBackgroundColor="@color/purple"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/icon_up"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toTopOf="@+id/top" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:elevation="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/head"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:elevation="5dp"
+        android:text="Birding \nApps"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="?attr/actionBarSize" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/icon_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/icon_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <TextView
+        android:id="@+id/txt_kategori"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Kategory"
+        android:textAlignment="center"
+        android:textColor="@color/purple"
+        android:textSize="@dimen/text_size_12"
+        android:theme="@style/poppinsSemibold"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toTopOf="@+id/icon_up" />
+
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="5"
+        android:rowCount="1"
+        app:layout_constraintBottom_toTopOf="@+id/icon_down"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/txt_kategori">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                app:aspectRatioHeight="1"
+                app:aspectRatioWidth="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/kat_anis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_anis" />
+            </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anis"
+                android:textColor="@color/purple"
+                android:textSize="@dimen/text_size_10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                app:aspectRatioHeight="1"
+                app:aspectRatioWidth="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/kat_beo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_beo" />
+            </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beo"
+                android:textColor="@color/purple"
+                android:textSize="@dimen/text_size_10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                app:aspectRatioHeight="1"
+                app:aspectRatioWidth="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/kat_jalak"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_jalak" />
+            </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jalak"
+                android:textColor="@color/purple"
+                android:textSize="@dimen/text_size_10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                app:aspectRatioHeight="1"
+                app:aspectRatioWidth="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/kat_lovebird"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_lovebird" />
+            </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LoveBird"
+                android:textColor="@color/purple"
+                android:textSize="@dimen/text_size_10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+                app:aspectRatioHeight="1"
+                app:aspectRatioWidth="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/kat_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_more"
+                    android:tint="@color/purple" />
+            </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Semua"
+                android:textColor="@color/purple"
+                android:textSize="@dimen/text_size_10" />
+        </LinearLayout>
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Menu"
+        android:textAlignment="center"
+        android:textColor="@color/purple"
+        android:textSize="@dimen/text_size_12"
+        android:theme="@style/poppinsSemibold"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toTopOf="@+id/icon_down" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/txt_description">
+
+        <com.cnd.birdapps.utils.AspectRatioFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            app:aspectRatioHeight="1"
+            app:aspectRatioWidth="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:rippleColor="@color/purple"
+                app:strokeColor="@color/purple"
+                app:strokeWidth="1dp">
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+        <com.cnd.birdapps.utils.AspectRatioFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            app:aspectRatioHeight="1"
+            app:aspectRatioWidth="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:rippleColor="@color/purple"
+                app:strokeColor="@color/purple"
+                app:strokeWidth="1dp">
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+        <com.cnd.birdapps.utils.AspectRatioFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            app:aspectRatioHeight="1"
+            app:aspectRatioWidth="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:rippleColor="@color/purple"
+                app:strokeColor="@color/purple"
+                app:strokeWidth="1dp">
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+        <com.cnd.birdapps.utils.AspectRatioFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            app:aspectRatioHeight="1"
+            app:aspectRatioWidth="1">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:rippleColor="@color/purple"
+                app:strokeColor="@color/purple"
+                app:strokeWidth="1dp">
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.cnd.birdapps.utils.AspectRatioFrameLayout>
+
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
