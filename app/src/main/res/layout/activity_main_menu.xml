@@ -364,6 +364,11 @@
                 app:strokeColor="@color/purple"
                 app:strokeWidth="1dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Morfologi" />
             </com.google.android.material.card.MaterialCardView>
         </com.cnd.birdapps.utils.AspectRatioFrameLayout>
 
@@ -388,6 +393,11 @@
                 app:strokeColor="@color/purple"
                 app:strokeWidth="1dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Mastering" />
             </com.google.android.material.card.MaterialCardView>
         </com.cnd.birdapps.utils.AspectRatioFrameLayout>
 
@@ -412,6 +422,11 @@
                 app:strokeColor="@color/purple"
                 app:strokeWidth="1dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Artikel" />
             </com.google.android.material.card.MaterialCardView>
         </com.cnd.birdapps.utils.AspectRatioFrameLayout>
 
@@ -436,6 +451,11 @@
                 app:strokeColor="@color/purple"
                 app:strokeWidth="1dp">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Tentang" />
             </com.google.android.material.card.MaterialCardView>
         </com.cnd.birdapps.utils.AspectRatioFrameLayout>
 
