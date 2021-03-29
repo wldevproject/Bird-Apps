@@ -40,4 +40,11 @@ interface Routes {
         @Field("username") username: String,
         @Field("password") password: String
     ): Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("user/login")
+    fun apiLoginUser(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): Call<ResponseBody>
 }

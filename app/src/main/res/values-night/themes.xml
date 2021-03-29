@@ -51,4 +51,12 @@
     <style name="colorBase">
         <item name="android:background">?attr/colorOnPrimary</item>
     </style>
+
+    <style name="EditTextCustom" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
 </resources>

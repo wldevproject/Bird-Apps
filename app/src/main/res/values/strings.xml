@@ -15,4 +15,9 @@
     <string name="title_home">Home</string>
     <string name="title_search">Mencari</string>
     <string name="title_sigin">Masuk</string>
+    <string name="title_username">Username</string>
+    <string name="title_pass">Kata Sandi</string>
+    <string name="title_sign">Masuk</string>
+    <string name="title_full_name">Nama Lengkap</string>
+    <string name="title_sign_up">Bergabung</string>
 </resources>

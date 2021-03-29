@@ -18,8 +18,18 @@
         tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_signin"
-        android:name="com.cnd.birdapps.ui.view.sigin.SigInFragment"
+        android:id="@+id/navigation_signIn"
+        android:name="com.cnd.birdapps.ui.view.signin.SignInFragment"
         android:label="@string/title_sigin"
-        tools:layout="@layout/fragment_sig_in" />
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_navigation_signin_to_signUpFragment"
+            app:destination="@id/navigation_signUp" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_signUp"
+        android:name="com.cnd.birdapps.ui.view.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>

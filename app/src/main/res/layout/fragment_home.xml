@@ -145,7 +145,6 @@
         app:layout_constraintStart_toStartOf="@+id/left"
         app:layout_constraintTop_toTopOf="@+id/icon_up" />
 
-
     <GridLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
