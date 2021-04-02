@@ -28,7 +28,7 @@ class ArticleViewModel : ViewModel() {
         get() = _item
 
     private val _status = MutableLiveData<String>()
-    val failure: LiveData<String>
+    val status: LiveData<String>
         get() = _status
 
     internal fun setData() {

@@ -49,7 +49,7 @@ class ListArticleActivity : AppCompatActivity() {
             onShowData(it)
         })
 
-        viewModel.failure.observe(this, Observer {
+        viewModel.status.observe(this, Observer {
             Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
         })
     }
