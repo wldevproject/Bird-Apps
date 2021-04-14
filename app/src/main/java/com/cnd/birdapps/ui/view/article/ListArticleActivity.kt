@@ -32,7 +32,7 @@ class ListArticleActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        with(binding) {
+        binding.apply {
             articleList.layoutManager = GridLayoutManager(applicationContext, 2)
 //            articleList.adapter?.notifyDataSetChanged()
             articleList.scheduleLayoutAnimation()
@@ -43,7 +43,7 @@ class ListArticleActivity : AppCompatActivity() {
     }
 
     private fun onGetData() {
-        viewModel.setData()
+        viewModel.getData()
 
         viewModel.items.observe(this, Observer {
             onShowData(it)
@@ -57,6 +57,7 @@ class ListArticleActivity : AppCompatActivity() {
     private fun onShowData(listItems: ArrayList<DataItem>) {
         adapter = ArticleAdapter(listItems)
         binding.articleList.adapter = adapter
+
         adapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onClicked(data: DataItem) {
                 val intent = Intent(this@ListArticleActivity, DetailArticleActivity::class.java)

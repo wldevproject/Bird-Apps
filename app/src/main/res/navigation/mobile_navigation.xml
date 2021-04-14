@@ -9,7 +9,17 @@
         android:id="@+id/navigation_home"
         android:name="com.cnd.birdapps.ui.view.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_articleFragment"
+            app:destination="@id/articleFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_masteringFragment"
+            app:destination="@id/masteringFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_morphologyFragment"
+            app:destination="@id/morphologyFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
@@ -32,4 +42,29 @@
         android:name="com.cnd.birdapps.ui.view.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
+
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.cnd.birdapps.ui.view.article.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/masteringFragment"
+        android:name="com.cnd.birdapps.ui.view.mastering.MasteringFragment"
+        android:label="fragment_mastering"
+        tools:layout="@layout/fragment_mastering" >
+        <action
+            android:id="@+id/action_masteringFragment_to_playMasteringFragment"
+            app:destination="@id/playMasteringFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/morphologyFragment"
+        android:name="com.cnd.birdapps.ui.view.morphology.MorphologyFragment"
+        android:label="fragment_morphology"
+        tools:layout="@layout/fragment_morphology" />
+    <fragment
+        android:id="@+id/playMasteringFragment"
+        android:name="com.cnd.birdapps.ui.view.mastering.PlayMasteringFragment"
+        android:label="fragment_play_mastering"
+        tools:layout="@layout/fragment_play_mastering" />
 </navigation>

@@ -351,6 +351,7 @@
             app:aspectRatioWidth="1">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_morfologi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -380,6 +381,7 @@
             app:aspectRatioWidth="1">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_mastering"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -393,7 +395,6 @@
                 app:strokeWidth="1dp">
 
                 <TextView
-                    android:id="@+id/test_btn_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -410,6 +411,7 @@
             app:aspectRatioWidth="1">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_article"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -439,6 +441,7 @@
             app:aspectRatioWidth="1">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_about"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -452,6 +455,7 @@
                 app:strokeWidth="1dp">
 
                 <TextView
+                    android:id="@+id/txt_about"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"

@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.cnd.birdapps.databinding.FragmentSignUpBinding
+import com.cnd.birdapps.ui.viewmodels.SignUpViewModel
 
 class SignUpFragment : Fragment() {
     private val viewModel: SignUpViewModel by viewModels()

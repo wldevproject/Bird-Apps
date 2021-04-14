@@ -1,4 +1,4 @@
-package com.cnd.birdapps.ui.view.signin
+package com.cnd.birdapps.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,16 +10,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SignInViewModel : ViewModel() {
+class SignUpViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     private val _status = MutableLiveData<String>()
     val status: LiveData<String>
         get() = _status
 
-    internal fun postData( userName: String, password: String) {
-        NetworkClient().apiHttp().apiLoginUser(
-            userName, password
+    internal fun postData(fullName: String, userName: String, password: String) {
+        NetworkClient().apiHttp().apiPostUser(
+            fullName, userName, password
         ).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>, response: Response<ResponseBody>
@@ -44,7 +44,7 @@ class SignInViewModel : ViewModel() {
 
     companion object{
         private const val NO_CONNECTION_MSG = "Tidak Ada Koneksi"
-        private const val ERROR_MSG = "Gagal Masuk"
-        private const val SUCCESS_MSG = "Berhasil Masuk"
+        private const val ERROR_MSG = "Gagal Mendaftar"
+        private const val SUCCESS_MSG = "Berhasil Mendaftar"
     }
 }

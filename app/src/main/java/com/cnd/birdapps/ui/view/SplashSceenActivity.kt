@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.cnd.birdapps.databinding.ActivitySplashScreenBinding
-import com.cnd.birdapps.ui.view.article.ListArticleActivity
-import com.cnd.birdapps.ui.view.user.UserActivity
+import com.cnd.birdapps.ui.view.menu.MainMenuActivity
 
 class SplashSceenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding

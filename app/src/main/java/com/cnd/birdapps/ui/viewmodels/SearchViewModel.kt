@@ -1,4 +1,4 @@
-package com.cnd.birdapps.ui.view.search
+package com.cnd.birdapps.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.cnd.birdapps" >
+    package="com.cnd.birdapps">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,13 +17,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BirdApps"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m" >
-        <activity android:name=".ui.view.MainMenuActivity" />
+        tools:targetApi="m">
+        <activity android:name=".ui.view.menu.MainMenuLogActivity"></activity>
+        <activity android:name=".ui.view.menu.MainMenuActivity" />
         <activity android:name=".ui.view.article.ListArticleActivity" />
         <activity android:name=".ui.view.article.InputArticleActivity" />
         <activity android:name=".ui.view.article.DetailArticleActivity" />
         <activity android:name=".ui.view.user.UserActivity" />
-        <activity android:name=".ui.view.SplashSceenActivity" >
+        <activity android:name=".ui.view.SplashSceenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

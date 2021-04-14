@@ -47,7 +47,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/full_name"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="5dp"
             android:hint="@string/title_full_name"
             android:inputType="text"
@@ -70,7 +70,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="5dp"
             android:hint="@string/title_username"
             android:inputType="text"
@@ -93,8 +93,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:hint="@string/title_pass"
             android:inputType="textPassword"
             android:textColor="@android:color/black"

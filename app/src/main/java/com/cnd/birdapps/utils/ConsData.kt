@@ -7,4 +7,15 @@ package com.cnd.birdapps.utils
  **/
 object ConsData {
     const val SUCCESS = "success"
+    const val ADMIN = 1
+    const val USER = 0
+
+    var statLogin = 0
+
+    var birdSpecies = ""
+    const val LOVE_BIRD ="loveBird"
+    const val KENARI ="kenari"
+    const val JALAK_RIO ="jalakrio"
+    const val CILILIN ="cililin"
+    const val CC_JENGGOT ="jenggot"
 }

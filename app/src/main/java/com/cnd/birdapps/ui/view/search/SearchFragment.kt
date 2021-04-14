@@ -15,6 +15,7 @@ import com.cnd.birdapps.data.model.article.DataItem
 import com.cnd.birdapps.databinding.FragmentSearchBinding
 import com.cnd.birdapps.ui.adapter.ArticleAdapter
 import com.cnd.birdapps.ui.view.article.DetailArticleActivity
+import com.cnd.birdapps.ui.viewmodels.SearchViewModel
 import java.util.ArrayList
 
 
@@ -22,7 +23,7 @@ class SearchFragment : Fragment() {
     private lateinit var viewModel: SearchViewModel
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: ArticleAdapter
+    private var adapter: ArticleAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,7 +64,7 @@ class SearchFragment : Fragment() {
     private fun onShowData(listItems: ArrayList<DataItem>) {
         adapter = ArticleAdapter(listItems)
         binding.articleList.adapter = adapter
-        adapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
+        adapter?.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onClicked(data: DataItem) {
                 val intent = Intent(requireContext(), DetailArticleActivity::class.java)
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
@@ -79,13 +80,15 @@ class SearchFragment : Fragment() {
         val searchView = itemMenu.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                adapter.filter.filter(query)
+                if (query != null) {
+                    adapter?.filter?.filter(query)
+                }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 if (newText != null) {
-                    adapter.filter.filter(newText)
+                    adapter?.filter?.filter(newText)
                 }
                 return false
             }

@@ -1,5 +1,6 @@
 package com.cnd.birdapps.ui.view.signin
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.cnd.birdapps.R
 import com.cnd.birdapps.databinding.FragmentSignInBinding
+import com.cnd.birdapps.ui.view.menu.MainMenuLogActivity
+import com.cnd.birdapps.ui.viewmodels.SignInViewModel
 
 class SignInFragment : Fragment() {
     private lateinit var viewModel: SignInViewModel
@@ -38,6 +41,10 @@ class SignInFragment : Fragment() {
             showNotif(it)
             binding.btnSignIn.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
+
+            val i = Intent(requireContext(), MainMenuLogActivity::class.java)
+            startActivity(i)
+            activity?.finish()
         })
 
         binding.btnSignUp.setOnClickListener { onSignUp() }
