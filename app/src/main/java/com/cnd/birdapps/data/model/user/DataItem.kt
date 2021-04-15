@@ -1,4 +1,4 @@
-package com.cnd.birdapps.data.model.user.get
+package com.cnd.birdapps.data.model.user
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

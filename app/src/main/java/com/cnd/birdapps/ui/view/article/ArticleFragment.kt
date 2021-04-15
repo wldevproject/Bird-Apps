@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.cnd.birdapps.R
 import com.cnd.birdapps.data.model.article.DataItem
-import com.cnd.birdapps.data.model.user.MessageEvent
+import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.FragmentArticleBinding
 import com.cnd.birdapps.ui.adapter.ArticleAdapter
 import com.cnd.birdapps.ui.viewmodels.ArticleViewModel

@@ -1,16 +1,18 @@
 package com.cnd.birdapps.ui.view.menu
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cnd.birdapps.R
+import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.ActivityMainMenuLogBinding
 import com.cnd.birdapps.utils.ConsData.ADMIN
-import com.cnd.birdapps.utils.ConsData.statLogin
+import com.cnd.birdapps.utils.ConsData.stateLogin
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class MainMenuLogActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainMenuLogBinding
@@ -20,26 +22,31 @@ class MainMenuLogActivity : AppCompatActivity() {
         binding = ActivityMainMenuLogBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navController = findNavController(R.id.nav_host_fragment_log)
-        binding.navView.setupWithNavController(navController)
-        hideBottomAppBar()
-
-        statLogin = ADMIN
+        binding.run {
+            navView.setupWithNavController(navController)
+        }
+        stateLogin = ADMIN
     }
 
-
-    private fun hideBottomAppBar() {
+    private fun hideBottomAppBar(hideMenu: Boolean) {
         binding.run {
-            navView.animate().setListener(object : AnimatorListenerAdapter() {
-                var isCanceled = false
-                override fun onAnimationEnd(animation: Animator?) {
-                    if (isCanceled) return
-                    navView.visibility = View.GONE
-                }
-
-                override fun onAnimationCancel(animation: Animator?) {
-                    isCanceled = true
-                }
-            })
+            if (hideMenu)navView.visibility = View.GONE
+            if (!hideMenu) navView.visibility = View.VISIBLE
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    fun onEvent(event: MessageEvent) {
+        hideBottomAppBar(event.hideMenu)
     }
 }

@@ -2,16 +2,14 @@ package com.cnd.birdapps.ui.view.menu
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.cnd.birdapps.R
-import com.cnd.birdapps.data.model.user.MessageEvent
+import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.ActivityMainMenuBinding
-import com.cnd.birdapps.utils.ConsData
 import com.cnd.birdapps.utils.ConsData.USER
-import com.cnd.birdapps.utils.ConsData.statLogin
+import com.cnd.birdapps.utils.ConsData.stateLogin
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -27,7 +25,7 @@ class MainMenuActivity : AppCompatActivity() {
         binding.run {
             navView.setupWithNavController(navController)
         }
-        statLogin = USER
+        stateLogin = USER
     }
 
     private fun hideBottomAppBar(hideMenu: Boolean) {

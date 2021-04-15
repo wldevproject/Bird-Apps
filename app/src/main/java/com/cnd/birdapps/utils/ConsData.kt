@@ -10,7 +10,14 @@ object ConsData {
     const val ADMIN = 1
     const val USER = 0
 
-    var statLogin = 0
+    var stateLogin = 0
+
+    var stateKategory = ""
+    const val KAT_ANIS ="Anis"
+    const val KAT_BEO ="Beo"
+    const val KAT_JALAK ="Jalak"
+    const val KAT_LOVEBIRD ="Lovebird"
+    const val KAT_MORE =""
 
     var birdSpecies = ""
     const val LOVE_BIRD ="loveBird"

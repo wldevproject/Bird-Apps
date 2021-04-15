@@ -1,15 +1,11 @@
-package com.cnd.birdapps.data.model.user.get
+package com.cnd.birdapps.data.model.kategory
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-/**
- ** Written by CND_Studio 16/03/2021 22.29.
- ** Author @JoeFachrizal
- ** Happy Code...
- **/
+
 @Parcelize
-data class UserResponse(
+data class KategoryResponse(
 
 	@field:SerializedName("data")
 	val data: ArrayList<DataItem>,

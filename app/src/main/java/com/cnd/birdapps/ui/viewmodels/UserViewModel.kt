@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cnd.birdapps.data.api.NetworkClient
-import com.cnd.birdapps.data.model.user.get.DataItem
-import com.cnd.birdapps.data.model.user.get.UserResponse
+import com.cnd.birdapps.data.model.user.DataItem
+import com.cnd.birdapps.data.model.user.UserResponse
 import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
 import okhttp3.MultipartBody

@@ -18,7 +18,8 @@
         android:theme="@style/Theme.BirdApps"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.view.menu.MainMenuLogActivity"></activity>
+        <activity android:name=".ui.view.kategory.KategoryActivity"/>
+        <activity android:name=".ui.view.menu.MainMenuLogActivity" />
         <activity android:name=".ui.view.menu.MainMenuActivity" />
         <activity android:name=".ui.view.article.ListArticleActivity" />
         <activity android:name=".ui.view.article.InputArticleActivity" />

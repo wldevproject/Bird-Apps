@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cnd.birdapps.data.model.Mastering
-import com.cnd.birdapps.data.model.user.MessageEvent
+import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.FragmentPlayMasteringBinding
 import com.cnd.birdapps.ui.adapter.MasteringAdapter
 import com.cnd.birdapps.ui.viewmodels.PlayMasteringViewModel
@@ -30,6 +29,7 @@ class PlayMasteringFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: MasteringAdapter
     var mediaPlayer: MediaPlayer? = null
+    var stopState: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -105,14 +105,21 @@ class PlayMasteringFragment : Fragment() {
             override fun onStop(song: Int) {
                 mediaPlayer?.stop()
                 mediaPlayer?.release()
+                stopState = true
             }
         })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (!stopState) {
+            mediaPlayer?.stop()
+            mediaPlayer?.release()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        mediaPlayer?.stop()
-        mediaPlayer?.release()
     }
 }

@@ -1,7 +1,8 @@
 package com.cnd.birdapps.data.api
 
 import com.cnd.birdapps.data.model.article.ArticleResponse
-import com.cnd.birdapps.data.model.user.get.UserResponse
+import com.cnd.birdapps.data.model.kategory.KategoryResponse
+import com.cnd.birdapps.data.model.user.UserResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -19,6 +20,9 @@ interface Routes {
     fun apiGetUser(
         @Query("id") type: String
     ): Call<UserResponse>
+
+    @GET("birdSpecies")
+    fun apiGetBirdSpecies(): Call<KategoryResponse>
 
     @GET("article")
     fun apiGetArticle(): Call<ArticleResponse>

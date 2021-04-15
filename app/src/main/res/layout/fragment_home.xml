@@ -164,6 +164,7 @@
             android:orientation="vertical">
 
             <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:id="@+id/btn_kat_anis"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -196,6 +197,7 @@
             android:orientation="vertical">
 
             <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:id="@+id/btn_kat_beo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -228,6 +230,7 @@
             android:orientation="vertical">
 
             <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:id="@+id/btn_kat_jalak"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -260,6 +263,7 @@
             android:orientation="vertical">
 
             <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:id="@+id/btn_kat_lovebird"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -292,6 +296,7 @@
             android:orientation="vertical">
 
             <com.cnd.birdapps.utils.AspectRatioFrameLayout
+                android:id="@+id/btn_kat_more"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

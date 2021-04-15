@@ -11,7 +11,7 @@ class PlayMasteringViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     private val _loveBird = MutableLiveData<ArrayList<Mastering>>().apply {
-        val arrayList: java.util.ArrayList<Mastering> = arrayListOf()
+        val arrayList: ArrayList<Mastering> = arrayListOf()
         arrayList.add(Mastering("Master lovebird 1", "Lovebird", R.raw.master_lovebird_1))
         arrayList.add(Mastering("Master lovebird 2", "Lovebird", R.raw.master_lovebird_2))
         arrayList.add(Mastering("Master lovebird 3", "Lovebird", R.raw.master_lovebird_3))
@@ -24,7 +24,7 @@ class PlayMasteringViewModel : ViewModel() {
     }
 
     private val _kenari = MutableLiveData<ArrayList<Mastering>>().apply {
-        val arrayList: java.util.ArrayList<Mastering> = arrayListOf()
+        val arrayList: ArrayList<Mastering> = arrayListOf()
         arrayList.add(Mastering("Master kenari 1", "Kenari", R.raw.master_kenari_1))
         arrayList.add(Mastering("Master kenari 2", "Kenari", R.raw.master_kenari_2))
         arrayList.add(Mastering("Master kenari 3", "Kenari", R.raw.master_kenari_3))
@@ -35,7 +35,7 @@ class PlayMasteringViewModel : ViewModel() {
     }
 
     private val _jalakrio = MutableLiveData<ArrayList<Mastering>>().apply {
-        val arrayList: java.util.ArrayList<Mastering> = arrayListOf()
+        val arrayList: ArrayList<Mastering> = arrayListOf()
         arrayList.add(Mastering("Master jalak rio 1", "Jalak rio", R.raw.master_jalak_rio_1))
         arrayList.add(Mastering("Master jalak rio 2", "Jalak rio", R.raw.master_jalak_rio_2))
         arrayList.add(Mastering("Master jalak rio 3", "Jalak rio", R.raw.master_jalak_rio_3))
@@ -46,7 +46,7 @@ class PlayMasteringViewModel : ViewModel() {
     }
 
     private val _cililin = MutableLiveData<ArrayList<Mastering>>().apply {
-        val arrayList: java.util.ArrayList<Mastering> = arrayListOf()
+        val arrayList: ArrayList<Mastering> = arrayListOf()
         arrayList.add(Mastering("Master cililin 1", "Cililin", R.raw.master_cililin_1))
         arrayList.add(Mastering("Master cililin 2", "Cililin", R.raw.master_cililin_2))
         arrayList.add(Mastering("Master cililin 3", "Cililin", R.raw.master_cililin_3))
@@ -57,7 +57,7 @@ class PlayMasteringViewModel : ViewModel() {
     }
 
     private val _cucakjenggot = MutableLiveData<ArrayList<Mastering>>().apply {
-        val arrayList: java.util.ArrayList<Mastering> = arrayListOf()
+        val arrayList: ArrayList<Mastering> = arrayListOf()
         arrayList.add(Mastering("Master cucak jenggot 1", "Cucak jenggot", R.raw.master_cucak_jenggot_1))
         arrayList.add(Mastering("Master cucak jenggot 2", "Cucak jenggot", R.raw.master_cucak_jenggot_2))
         arrayList.add(Mastering("Master cucak jenggot 3", "Cucak jenggot", R.raw.master_cucak_jenggot_3))
