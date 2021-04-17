@@ -8,24 +8,42 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BirdApps"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.view.kategory.KategoryActivity"/>
-        <activity android:name=".ui.view.menu.MainMenuLogActivity" />
-        <activity android:name=".ui.view.menu.MainMenuActivity" />
-        <activity android:name=".ui.view.article.ListArticleActivity" />
-        <activity android:name=".ui.view.article.InputArticleActivity" />
-        <activity android:name=".ui.view.article.DetailArticleActivity" />
-        <activity android:name=".ui.view.user.UserActivity" />
-        <activity android:name=".ui.view.SplashSceenActivity">
+        <activity
+            android:name=".ui.view.kategory.KategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.menu.MainMenuLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.menu.MainMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.article.MyArticleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.article.InputArticleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.article.DetailArticleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.user.UserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.SplashSceenActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

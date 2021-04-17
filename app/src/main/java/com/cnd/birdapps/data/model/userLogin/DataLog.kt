@@ -1,14 +1,14 @@
-package com.cnd.birdapps.data.model.kategory
+package com.cnd.birdapps.data.model.userLogin
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class DataItem(
+data class DataLog(
 
-	@field:SerializedName("createdAt")
-	val createdAt: String,
+	@field:SerializedName("role")
+	val role: Int,
 
 	@field:SerializedName("name")
 	val name: String,
@@ -16,6 +16,6 @@ data class DataItem(
 	@field:SerializedName("id")
 	val id: Int,
 
-	@field:SerializedName("updatedAt")
-	val updatedAt: String
+	@field:SerializedName("username")
+	val username: String
 ) : Parcelable

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.cnd.birdapps.data.api.NetworkClient
 import com.cnd.birdapps.data.model.article.ArticleResponse
 import com.cnd.birdapps.data.model.article.DataItem
-import com.cnd.birdapps.utils.ConsData
+import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,7 +28,7 @@ class SearchViewModel : ViewModel() {
             override fun onResponse(
                 call: Call<ArticleResponse>, response: Response<ArticleResponse>
             ) {
-                if (response.body()?.status == ConsData.SUCCESS) {
+                if (response.body()?.status == SUCCESS) {
                     if (response.body()?.data != null) {
                         _item.value = response.body()?.data
                     } else {

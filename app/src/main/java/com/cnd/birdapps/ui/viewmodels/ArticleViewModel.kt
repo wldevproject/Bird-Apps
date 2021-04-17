@@ -8,9 +8,6 @@ import com.cnd.birdapps.data.model.article.ArticleResponse
 import com.cnd.birdapps.data.model.article.DataItem
 import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,6 +50,55 @@ class ArticleViewModel : ViewModel() {
             }
         })
     }
+
+    internal fun getDataQuery(id: Int) {
+        NetworkClient().apiHttp().apiGetArticleQuery(id)
+            .enqueue(object : Callback<ArticleResponse> {
+                override fun onResponse(
+                    call: Call<ArticleResponse>, response: Response<ArticleResponse>
+                ) {
+                    if (response.body()?.status == SUCCESS) {
+                        if (response.body()?.data != null) {
+                            _item.value = response.body()?.data
+                        } else {
+                            _status.value = "Data Tidak Ditemukan"
+                        }
+                    } else {
+                        _status.value = "Akses Bermasalah"
+                    }
+
+                }
+
+                override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
+                    _status.value = "Tidak Ada Koneksi"
+                }
+            })
+    }
+
+    internal fun getDataUserId(id: Int) {
+        NetworkClient().apiHttp().apiGetArticleUserId(id)
+            .enqueue(object : Callback<ArticleResponse> {
+                override fun onResponse(
+                    call: Call<ArticleResponse>, response: Response<ArticleResponse>
+                ) {
+                    if (response.body()?.status == SUCCESS) {
+                        if (response.body()?.data != null) {
+                            _item.value = response.body()?.data
+                        } else {
+                            _status.value = "Data Tidak Ditemukan"
+                        }
+                    } else {
+                        _status.value = "Akses Bermasalah"
+                    }
+
+                }
+
+                override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
+                    _status.value = "Tidak Ada Koneksi"
+                }
+            })
+    }
+
 
     override fun onCleared() {
         super.onCleared()

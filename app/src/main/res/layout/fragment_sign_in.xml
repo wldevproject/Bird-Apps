@@ -73,8 +73,8 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:hint="@string/title_pass"
-            android:text="123"
             android:inputType="textPassword"
+            android:text="123"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_size_14" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -184,4 +184,17 @@
         app:layout_constraintTop_toTopOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="Dengan mendaftarkan diri, kamu membantu untuk membangun aplikasi ini dan yang bersedia membagikan ilmunya dalam memelihara dan merawat berbagai jenis burung."
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_11"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

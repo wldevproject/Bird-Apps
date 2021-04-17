@@ -34,5 +34,9 @@ class DetailArticleActivity : AppCompatActivity() {
         binding.publish.text = status
         binding.description.text = item?.description
         binding.updateDate.text = item?.createdAt
+
+        binding.backArrow.setOnClickListener {
+            finish()
+        }
     }
 }

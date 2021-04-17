@@ -6,4 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.article.InputArticleActivity">
 
+    <ImageView
+        android:id="@+id/upload_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:contentDescription="@string/image_view"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_add_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_image" />
+
+    <View
+        android:id="@+id/view_prograss"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black50"
+        app:layout_constraintBottom_toBottomOf="@+id/upload_image"
+        app:layout_constraintEnd_toEndOf="@+id/upload_image"
+        app:layout_constraintStart_toStartOf="@+id/upload_image"
+        app:layout_constraintTop_toTopOf="@+id/upload_image" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/upload_image"
+        app:layout_constraintEnd_toEndOf="@+id/upload_image"
+        app:layout_constraintStart_toStartOf="@+id/upload_image"
+        app:layout_constraintTop_toTopOf="@+id/upload_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>

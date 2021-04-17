@@ -11,6 +11,10 @@ object ConsData {
     const val USER = 0
 
     var stateLogin = 0
+    var role: Int = 0
+    var name: String = ""
+    var userID: Int = 0
+    var username: String = ""
 
     var stateKategory = ""
     const val KAT_ANIS ="Anis"

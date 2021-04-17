@@ -90,37 +90,23 @@ class HomeFragment : Fragment() {
 
 
     private fun onMorphology() {
-        if (stateLogin == ADMIN) {
-            findNavController().navigate(R.id.morphologyFragment2)
-        } else {
-            findNavController().navigate(R.id.morphologyFragment)
-        }
+        if (stateLogin == ADMIN) findNavController().navigate(R.id.morphologyFragment2)
+        else findNavController().navigate(R.id.morphologyFragment)
     }
 
     private fun onMastering() {
-        if (stateLogin == ADMIN) {
-            findNavController().navigate(R.id.masteringFragment2)
-        } else {
-            findNavController().navigate(R.id.masteringFragment)
-        }
+        if (stateLogin == ADMIN) findNavController().navigate(R.id.masteringFragment2)
+        else findNavController().navigate(R.id.masteringFragment)
     }
 
     private fun onArticle() {
-        if (stateLogin == ADMIN) {
-            findNavController().navigate(R.id.articleFragment2)
-        } else {
-            findNavController().navigate(R.id.articleFragment)
-        }
+        if (stateLogin == ADMIN) findNavController().navigate(R.id.articleFragment2)
+        else findNavController().navigate(R.id.articleFragment)
     }
 
     private fun onAbout() {
-        if (stateLogin == ADMIN) {
-            findNavController().navigate(R.id.aboutFragment)
-        } else {
-            findNavController().navigate(R.id.navigation_signIn)
-            Toast.makeText(requireContext(), "Silahkan masuk terlebih dahulu", Toast.LENGTH_SHORT)
-                .show()
-        }
+        if (stateLogin == ADMIN) findNavController().navigate(R.id.aboutFragment2)
+        else findNavController().navigate(R.id.aboutFragment)
     }
 
 

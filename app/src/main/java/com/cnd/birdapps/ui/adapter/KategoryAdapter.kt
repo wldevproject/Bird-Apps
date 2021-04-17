@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cnd.birdapps.R
-import com.cnd.birdapps.data.model.kategory.DataItem
+import com.cnd.birdapps.data.model.kategory.DataItemKat
 import com.cnd.birdapps.databinding.ItemKategoryBinding
 import com.cnd.birdapps.utils.ConsData.KAT_ANIS
 import com.cnd.birdapps.utils.ConsData.KAT_BEO
@@ -22,7 +22,7 @@ import kotlin.collections.ArrayList
  ** Happy Code...
  **/
 class KategoryAdapter(
-    private var listData: ArrayList<DataItem>,
+    private var listData: ArrayList<DataItemKat>,
     private var charSequence: CharSequence
 ) :
     RecyclerView.Adapter<KategoryAdapter.ViewHolder>() {
@@ -51,9 +51,9 @@ class KategoryAdapter(
         binding.root
     ) {
         @SuppressLint("SetTextI18n")
-        fun bind(dataItem: DataItem) {
+        fun bind(dataItemKat: DataItemKat) {
             binding.apply {
-                txtName.text = dataItem.name
+                txtName.text = dataItemKat.name
 
                 var resourceId = 0
                 when (charSequence) {
@@ -62,7 +62,7 @@ class KategoryAdapter(
                     KAT_JALAK -> resourceId = R.drawable.ic_jalak
                     KAT_LOVEBIRD -> resourceId = R.drawable.ic_lovebird
                     KAT_MORE -> {
-                        val nama = dataItem.name.take(3)
+                        val nama = dataItemKat.name.take(3)
                         when (nama) {
                             "Ani" -> resourceId = R.drawable.ic_anis
                             "Beo" -> resourceId = R.drawable.ic_beo
@@ -77,13 +77,13 @@ class KategoryAdapter(
                     .into(binding.img)
             }
             itemView.setOnClickListener {
-                onItemClickCallback.onClicked(dataItem)
+                onItemClickCallback.onClicked(dataItemKat)
             }
         }
     }
 
     interface OnItemClickCallback {
-        fun onClicked(dataItem: DataItem)
+        fun onClicked(dataItemKat: DataItemKat)
     }
 
     init {

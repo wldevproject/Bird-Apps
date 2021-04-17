@@ -7,9 +7,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class KategoryResponse(
 
-	@field:SerializedName("data")
-	val data: ArrayList<DataItem>,
+    @field:SerializedName("data")
+	val data: ArrayList<DataItemKat>,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: String
 ) : Parcelable

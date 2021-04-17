@@ -67,4 +67,9 @@
         android:name="com.cnd.birdapps.ui.view.mastering.PlayMasteringFragment"
         android:label="fragment_play_mastering"
         tools:layout="@layout/fragment_play_mastering" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.cnd.birdapps.ui.view.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

@@ -14,6 +14,7 @@ import com.cnd.birdapps.R
 import com.cnd.birdapps.databinding.FragmentSignInBinding
 import com.cnd.birdapps.ui.view.menu.MainMenuLogActivity
 import com.cnd.birdapps.ui.viewmodels.SignInViewModel
+import com.cnd.birdapps.utils.ConsData
 
 class SignInFragment : Fragment() {
     private lateinit var viewModel: SignInViewModel
@@ -37,14 +38,23 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.status.observe(viewLifecycleOwner, Observer {
-            showNotif(it)
+        viewModel.item.observe(viewLifecycleOwner, Observer {
             binding.btnSignIn.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
+            ConsData.apply {
+                userID = it.id
+                name = it.name
+                username = it.username
+                role = it.role
+            }
 
             val i = Intent(requireContext(), MainMenuLogActivity::class.java)
             startActivity(i)
             activity?.finish()
+        })
+
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            showNotif(it)
         })
 
         binding.btnSignUp.setOnClickListener { onSignUp() }
@@ -72,7 +82,7 @@ class SignInFragment : Fragment() {
         }
 
         if (!inputEmpty) {
-            viewModel.postData(userName, password)
+            viewModel.postDataTest(userName, password)
             binding.btnSignIn.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         }

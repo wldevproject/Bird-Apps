@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cnd.birdapps.data.api.NetworkClient
-import com.cnd.birdapps.data.model.kategory.DataItem
+import com.cnd.birdapps.data.model.kategory.DataItemKat
 import com.cnd.birdapps.data.model.kategory.KategoryResponse
 import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
@@ -22,8 +22,8 @@ import kotlin.collections.ArrayList
 class KategoryViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    private val _item = MutableLiveData<ArrayList<DataItem>>()
-    val items: LiveData<ArrayList<DataItem>>
+    private val _item = MutableLiveData<ArrayList<DataItemKat>>()
+    val items: LiveData<ArrayList<DataItemKat>>
         get() = _item
 
     private val _status = MutableLiveData<String>()
@@ -37,22 +37,22 @@ class KategoryViewModel : ViewModel() {
             ) {
                 if (response.body()?.status == SUCCESS) {
                     if (response.body()?.data != null) {
-                        val dataAsli: ArrayList<DataItem> = response.body()?.data!!
-                        var dataFiler: ArrayList<DataItem> = arrayListOf()
+                        val dataAsliKat: ArrayList<DataItemKat> = response.body()?.data!!
+                        var dataFilerKat: ArrayList<DataItemKat> = arrayListOf()
                         val charSearch = charSequence.toString()
-                        dataFiler = if (charSequence.isEmpty()) dataAsli
+                        dataFilerKat = if (charSequence.isEmpty()) dataAsliKat
                         else {
-                            for (data in dataAsli) {
+                            for (data in dataAsliKat) {
                                 if (data.name.toLowerCase(Locale.ROOT)
                                         .contains(charSearch.toLowerCase(Locale.ROOT))
                                 ) {
-                                    dataFiler.add(data)
+                                    dataFilerKat.add(data)
                                 }
                             }
-                            dataFiler
+                            dataFilerKat
                         }
 
-                        _item.value = dataFiler
+                        _item.value = dataFilerKat
                     } else {
                         _status.value = "Data Tidak Ditemukan"
                     }

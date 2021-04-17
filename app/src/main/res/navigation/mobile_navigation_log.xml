@@ -11,22 +11,17 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.cnd.birdapps.ui.view.search.SearchFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+    <!--    <fragment-->
+    <!--        android:id="@+id/navigation_add"-->
+    <!--        android:name="com.cnd.birdapps.ui.view.search.SearchFragment"-->
+    <!--        android:label="@string/title_search"-->
+    <!--        tools:layout="@layout/fragment_search" />-->
 
     <fragment
         android:id="@+id/navigation_profil"
         android:name="com.cnd.birdapps.ui.view.profil.ProfilFragment"
         android:label="@string/title_profil"
         tools:layout="@layout/fragment_profil" />
-    <fragment
-        android:id="@+id/aboutFragment"
-        android:name="com.cnd.birdapps.ui.view.about.AboutFragment"
-        android:label="fragment_about"
-        tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/articleFragment2"
         android:name="com.cnd.birdapps.ui.view.article.ArticleFragment"
@@ -36,7 +31,7 @@
         android:id="@+id/masteringFragment2"
         android:name="com.cnd.birdapps.ui.view.mastering.MasteringFragment"
         android:label="fragment_mastering"
-        tools:layout="@layout/fragment_mastering" >
+        tools:layout="@layout/fragment_mastering">
         <action
             android:id="@+id/action_masteringFragment2_to_playMasteringFragment2"
             app:destination="@id/playMasteringFragment2" />
@@ -51,5 +46,15 @@
         android:name="com.cnd.birdapps.ui.view.mastering.PlayMasteringFragment"
         android:label="fragment_play_mastering"
         tools:layout="@layout/fragment_play_mastering" />
+    <fragment
+        android:id="@+id/aboutFragment2"
+        android:name="com.cnd.birdapps.ui.view.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <activity
+        android:id="@+id/navigation_add"
+        android:name="com.cnd.birdapps.ui.view.article.MyArticleActivity"
+        android:label="activity_article"
+        tools:layout="@layout/activity_my_article" />
 
 </navigation>
