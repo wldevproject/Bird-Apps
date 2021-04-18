@@ -55,7 +55,7 @@ class ArticleFragment : Fragment() {
     }
 
     private fun onGetData() {
-        viewModel.getData()
+        viewModel.getData(true)
 
         viewModel.items.observe(viewLifecycleOwner, Observer {
             onShowData(it)

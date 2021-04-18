@@ -29,4 +29,17 @@
     <string name="buttonanimasi_1">Burung Beo</string>
     <string name="buttonanimasi_2">Burung Kolibri</string>
     <string name="buttonanimasi_3">Burung RedCoat</string>
+
+    <string-array name="list_jenis_burung">
+        <item>pilih Janis Burung</item>
+        <item>Anis Kembang</item>
+        <item>Anis Merah</item>
+        <item>Beo Enggano</item>
+        <item>Beo Jawa</item>
+        <item>Beo Nias</item>
+        <item>Beo Srilanka</item>
+        <item>Jalak Bali</item>
+        <item>Jalak Suren</item>
+        <item>Livebird</item>
+    </string-array>
 </resources>

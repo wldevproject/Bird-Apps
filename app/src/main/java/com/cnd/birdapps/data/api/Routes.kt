@@ -27,11 +27,14 @@ interface Routes {
     fun apiGetBirdSpecies(): Call<KategoryResponse>
 
     @GET("article")
-    fun apiGetArticle(): Call<ArticleResponse>
+    fun apiGetArticle(
+        @Query("publish") publish: Boolean
+    ): Call<ArticleResponse>
 
     @GET("article")
     fun apiGetArticleQuery(
-        @Query("birdSpeciesId") birdSpeciesId: Int
+        @Query("birdSpeciesId") birdSpeciesId: Int,
+        @Query("publish") publish: Boolean
     ): Call<ArticleResponse>
 
     @GET("article")

@@ -23,7 +23,7 @@ class SignInViewModel : ViewModel() {
     val item: LiveData<DataLog>
         get() = _item
 
-    internal fun postDataTest(userName: String, password: String) {
+    internal fun postDataLog(userName: String, password: String) {
         NetworkClient().apiHttp().apiLoginUserLog(
             userName, password
         ).enqueue(object : Callback<UserLogResponse> {
@@ -39,7 +39,7 @@ class SignInViewModel : ViewModel() {
                         _status.value = ERROR_MSG
                     }
                 } else {
-                    _status.value = NO_CONNECTION_MSG
+                    _status.value = ERROR_MSG
                 }
             }
 

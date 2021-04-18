@@ -23,8 +23,8 @@ class SearchViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
-    internal fun getData() {
-        NetworkClient().apiHttp().apiGetArticle().enqueue(object : Callback<ArticleResponse> {
+    internal fun getData(publish : Boolean) {
+        NetworkClient().apiHttp().apiGetArticle(publish).enqueue(object : Callback<ArticleResponse> {
             override fun onResponse(
                 call: Call<ArticleResponse>, response: Response<ArticleResponse>
             ) {

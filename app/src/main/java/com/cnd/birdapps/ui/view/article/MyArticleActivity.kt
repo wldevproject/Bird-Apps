@@ -65,7 +65,10 @@ class MyArticleActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+    }
 
-
+    override fun onStart() {
+        super.onStart()
+        viewModel.getDataUserId(userID)
     }
 }

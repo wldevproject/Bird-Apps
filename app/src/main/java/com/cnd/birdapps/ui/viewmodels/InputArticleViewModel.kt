@@ -4,9 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cnd.birdapps.data.api.NetworkClient
-import com.cnd.birdapps.data.model.user.DataItem
-import com.cnd.birdapps.data.model.user.UserResponse
-import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -23,56 +20,9 @@ import retrofit2.Response
 class InputArticleViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    private val _item = MutableLiveData<ArrayList<DataItem>>()
-    val items: LiveData<ArrayList<DataItem>>
-        get() = _item
-
     private val _status = MutableLiveData<String>()
-    val failure: LiveData<String>
+    val status: LiveData<String>
         get() = _status
-
-    internal fun setData(type: String) {
-        NetworkClient().apiHttp().apiGetUser(type).enqueue(object : Callback<UserResponse> {
-            override fun onResponse(
-                call: Call<UserResponse>, response: Response<UserResponse>
-            ) {
-                if (response.body()?.status == SUCCESS) {
-                    if (response.body()?.data != null) {
-                        _item.value = response.body()?.data
-                    } else {
-                        _status.value = "Data Tidak Ditemukan"
-                    }
-                } else {
-                    _status.value = "Akses Bermasalah"
-                }
-
-            }
-
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                _status.value = "Tidak Ada Koneksi"
-            }
-        })
-    }
-
-    internal fun setDataPost() {
-        NetworkClient().apiHttp().apiPostUser(
-            "dudu", "dudu", "321"
-        ).enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(
-                call: Call<ResponseBody>, response: Response<ResponseBody>
-            ) {
-                if (response.isSuccessful) {
-                    _status.value = "Berhasil Dikirim"
-                } else {
-                    _status.value = "Gagal Dikirim"
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                _status.value = "Tidak Ada Koneksi"
-            }
-        })
-    }
 
     internal fun setArticlePost(
         userId: RequestBody,

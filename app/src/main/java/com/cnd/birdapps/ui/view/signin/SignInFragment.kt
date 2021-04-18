@@ -54,6 +54,8 @@ class SignInFragment : Fragment() {
         })
 
         viewModel.status.observe(viewLifecycleOwner, Observer {
+            binding.btnSignIn.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.GONE
             showNotif(it)
         })
 
@@ -82,7 +84,7 @@ class SignInFragment : Fragment() {
         }
 
         if (!inputEmpty) {
-            viewModel.postDataTest(userName, password)
+            viewModel.postDataLog(userName, password)
             binding.btnSignIn.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         }
