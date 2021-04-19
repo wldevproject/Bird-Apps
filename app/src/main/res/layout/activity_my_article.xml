@@ -121,4 +121,11 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <include
+        android:id="@+id/no_data"
+        layout="@layout/item_no_data" />
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/item_loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

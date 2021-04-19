@@ -3,19 +3,15 @@ package com.cnd.birdapps.ui.view.kategory
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
-import com.cnd.birdapps.data.model.article.DataItem
 import com.cnd.birdapps.data.model.kategory.DataItemKat
 import com.cnd.birdapps.databinding.ActivityKategoryBinding
-import com.cnd.birdapps.ui.adapter.ArticleAdapter
 import com.cnd.birdapps.ui.adapter.KategoryAdapter
-import com.cnd.birdapps.ui.view.article.DetailArticleActivity
-import com.cnd.birdapps.ui.viewmodels.ArticleViewModel
 import com.cnd.birdapps.ui.viewmodels.KategoryViewModel
 import com.cnd.birdapps.utils.ConsData.stateKategory
 import java.util.ArrayList
@@ -35,6 +31,7 @@ class KategoryActivity : AppCompatActivity() {
 
     private fun initData() {
         binding.apply {
+            loading.loading.visibility = View.VISIBLE
             birdName.text = stateKategory
 
             kategoriList.adapter?.notifyDataSetChanged()
@@ -60,6 +57,10 @@ class KategoryActivity : AppCompatActivity() {
     private fun onShowData(list: ArrayList<DataItemKat>) {
         adapter = KategoryAdapter(list, stateKategory)
         binding.kategoriList.adapter = adapter
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.loading.loading.visibility = View.GONE
+        }, 1000)
 
         adapter.setOnItemClickCallback(object : KategoryAdapter.OnItemClickCallback {
             override fun onClicked(dataItemKat: DataItemKat) {

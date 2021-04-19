@@ -19,6 +19,7 @@ import kotlin.collections.ArrayList
 class ArticleAdapter(private var listData: ArrayList<DataItem>) :
     RecyclerView.Adapter<ArticleAdapter.ViewHolder>(), Filterable {
     var filterList: ArrayList<DataItem> = arrayListOf()
+    var filterKosong: ArrayList<DataItem> = arrayListOf()
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -55,6 +56,7 @@ class ArticleAdapter(private var listData: ArrayList<DataItem>) :
 
     interface OnItemClickCallback {
         fun onClicked(data: DataItem)
+        fun onStatus(data: String)
     }
 
     override fun getFilter(): Filter = myFilter
@@ -84,6 +86,11 @@ class ArticleAdapter(private var listData: ArrayList<DataItem>) :
         override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
 //            listData.clear()
             filterList = filterResults.values as ArrayList<DataItem>
+            if (filterList.isNullOrEmpty()) {
+                onItemClickCallback.onStatus("")
+            } else{
+                onItemClickCallback.onStatus("ada")
+            }
             notifyDataSetChanged()
         }
     }

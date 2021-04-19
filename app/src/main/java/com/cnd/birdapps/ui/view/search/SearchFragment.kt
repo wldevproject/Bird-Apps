@@ -2,6 +2,8 @@ package com.cnd.birdapps.ui.view.search
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -16,7 +18,7 @@ import com.cnd.birdapps.databinding.FragmentSearchBinding
 import com.cnd.birdapps.ui.adapter.ArticleAdapter
 import com.cnd.birdapps.ui.view.article.DetailArticleActivity
 import com.cnd.birdapps.ui.viewmodels.SearchViewModel
-import java.util.ArrayList
+import kotlin.collections.ArrayList
 
 
 class SearchFragment : Fragment() {
@@ -44,6 +46,7 @@ class SearchFragment : Fragment() {
 
     private fun initData() {
         with(binding) {
+            loading.loading.visibility = View.VISIBLE
             articleList.layoutManager = GridLayoutManager(requireContext().applicationContext, 2)
 //            articleList.adapter?.notifyDataSetChanged()
             articleList.scheduleLayoutAnimation()
@@ -62,14 +65,32 @@ class SearchFragment : Fragment() {
     }
 
     private fun onShowData(listItems: ArrayList<DataItem>) {
+        if (listItems.isNullOrEmpty()) {
+            binding.noData.noData.visibility = View.VISIBLE
+        }
         adapter = ArticleAdapter(listItems)
-        binding.articleList.adapter = adapter
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (_binding != null) {
+                binding.loading.loading.visibility = View.GONE
+            }
+        }, 1000)
+
         adapter?.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onClicked(data: DataItem) {
                 val intent = Intent(requireContext(), DetailArticleActivity::class.java)
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
                 startActivity(intent)
             }
+
+            override fun onStatus(data: String) {
+                if (data.isBlank() or data.isEmpty()) {
+                    binding.noData.noData.visibility = View.VISIBLE
+                } else {
+                    binding.noData.noData.visibility = View.GONE
+                }
+            }
+
         })
     }
 
@@ -78,18 +99,17 @@ class SearchFragment : Fragment() {
         inflater.inflate(R.menu.menu_main, menu)
         val itemMenu = menu.findItem(R.id.action_search) as MenuItem
         val searchView = itemMenu.actionView as SearchView
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     adapter?.filter?.filter(query)
+                    binding.articleList.adapter = adapter
                 }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText != null) {
-                    adapter?.filter?.filter(newText)
-                }
                 return false
             }
         })

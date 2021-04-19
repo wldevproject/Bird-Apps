@@ -3,6 +3,9 @@ package com.cnd.birdapps.ui.view.article
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.ViewCompat
@@ -29,6 +32,7 @@ class MyArticleActivity : AppCompatActivity() {
 
     private fun initData() {
         binding.apply {
+            loading.loading.visibility = View.VISIBLE
             articleList.layoutManager = GridLayoutManager(applicationContext, 2)
             articleList.scheduleLayoutAnimation()
             articleList.setHasFixedSize(true)
@@ -55,14 +59,26 @@ class MyArticleActivity : AppCompatActivity() {
     }
 
     private fun onShowData(listItems: ArrayList<DataItem>) {
+        if (listItems.isNullOrEmpty()) {
+            binding.noData.noData.visibility = View.VISIBLE
+        }
+
         adapter = ArticleAdapter(listItems)
         binding.articleList.adapter = adapter
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.loading.loading.visibility = View.GONE
+        }, 1000)
 
         adapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onClicked(data: DataItem) {
                 val intent = Intent(this@MyArticleActivity, DetailArticleActivity::class.java)
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
                 startActivity(intent)
+            }
+
+            override fun onStatus(data: String) {
+
             }
         })
     }

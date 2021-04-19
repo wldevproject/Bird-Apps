@@ -3,7 +3,10 @@ package com.cnd.birdapps.ui.view.article
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -17,7 +20,7 @@ import com.cnd.birdapps.databinding.FragmentArticleBinding
 import com.cnd.birdapps.ui.adapter.ArticleAdapter
 import com.cnd.birdapps.ui.viewmodels.ArticleViewModel
 import org.greenrobot.eventbus.EventBus
-import java.util.ArrayList
+import kotlin.collections.ArrayList
 
 class ArticleFragment : Fragment() {
 
@@ -45,6 +48,7 @@ class ArticleFragment : Fragment() {
 
     private fun initData() {
         binding.apply {
+            loading.loading.visibility = View.VISIBLE
             articleList.layoutManager = GridLayoutManager(requireContext().applicationContext, 2)
             articleList.adapter?.notifyDataSetChanged()
             articleList.scheduleLayoutAnimation()
@@ -63,8 +67,18 @@ class ArticleFragment : Fragment() {
     }
 
     private fun onShowData(listItems: ArrayList<DataItem>) {
+        if (listItems.isNullOrEmpty()) {
+            binding.noData.noData.visibility = View.VISIBLE
+        }
+
         adapter = ArticleAdapter(listItems)
         binding.articleList.adapter = adapter
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (_binding != null) {
+                binding.loading.loading.visibility = View.GONE
+            }
+        }, 1000)
 
         adapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onClicked(data: DataItem) {
@@ -72,6 +86,10 @@ class ArticleFragment : Fragment() {
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
                 startActivity(intent)
             }
+
+            override fun onStatus(data: String) {
+            }
+
         })
     }
 

@@ -144,4 +144,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="?attr/actionBarSize" />
 
+    <include
+        android:id="@+id/loading"
+        layout="@layout/item_loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>

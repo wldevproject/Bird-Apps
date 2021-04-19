@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.kategory.ListKategoriActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -91,11 +92,11 @@
         android:id="@+id/back_arrow"
         android:layout_width="30dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/image_view"
         android:src="@drawable/ic_baseline_arrow"
         app:layout_constraintBottom_toTopOf="@+id/top"
         app:layout_constraintStart_toStartOf="@+id/left1"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/image_view" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left1"
@@ -131,4 +132,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="?attr/actionBarSize" />
+
+    <include
+        android:id="@+id/no_data"
+        layout="@layout/item_no_data" />
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/item_loading" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
