@@ -197,8 +197,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Detail"
-            android:theme="@style/poppinsSemibold"
             android:textSize="@dimen/text_size_18"
+            android:theme="@style/poppinsSemibold"
             app:layout_constraintBottom_toBottomOf="@+id/view_up"
             app:layout_constraintEnd_toStartOf="@+id/right"
             app:layout_constraintStart_toStartOf="@+id/left"
@@ -213,6 +213,38 @@
             app:layout_constraintStart_toStartOf="@+id/left1"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_publish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0"
+            android:text="Publish"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_10"
+            android:visibility="gone"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_delete"
+            app:layout_constraintEnd_toStartOf="@+id/right"
+            app:layout_constraintStart_toStartOf="@+id/right_photo"
+            app:layout_constraintTop_toTopOf="@+id/btn_delete" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:letterSpacing="0"
+            android:text="Hapus"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_10"
+            android:visibility="gone"
+            app:cornerRadius="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom"
+            app:layout_constraintEnd_toStartOf="@+id/left_photo"
+            app:layout_constraintStart_toStartOf="@+id/left"
+            app:layout_constraintTop_toBottomOf="@+id/update_date"
+            app:layout_constraintVertical_bias="1.0" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left1"
             android:layout_width="wrap_content"
@@ -225,14 +257,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.3" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/right_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.75" />
+            app:layout_constraintGuide_percent="0.7" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left"
@@ -269,5 +301,8 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.45" />
 
+        <include
+            android:id="@+id/loading"
+            layout="@layout/item_loading" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

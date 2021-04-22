@@ -28,6 +28,29 @@ class ArticleViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
+    internal fun getAllData() {
+        NetworkClient().apiHttp().apiGetAllArticle().enqueue(object : Callback<ArticleResponse> {
+            override fun onResponse(
+                call: Call<ArticleResponse>, response: Response<ArticleResponse>
+            ) {
+                if (response.body()?.status == SUCCESS) {
+                    if (response.body()?.data != null) {
+                        _item.value = response.body()?.data
+                    } else {
+                        _status.value = "Data Tidak Ditemukan"
+                    }
+                } else {
+                    _status.value = "Akses Bermasalah"
+                }
+
+            }
+
+            override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
+                _status.value = "Tidak Ada Koneksi"
+            }
+        })
+    }
+
     internal fun getData(publish : Boolean) {
         NetworkClient().apiHttp().apiGetArticle(publish).enqueue(object : Callback<ArticleResponse> {
             override fun onResponse(
@@ -98,7 +121,6 @@ class ArticleViewModel : ViewModel() {
                 }
             })
     }
-
 
     override fun onCleared() {
         super.onCleared()

@@ -1,11 +1,16 @@
 package com.cnd.birdapps.ui.adapter
 
+import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.cnd.birdapps.R
 import com.cnd.birdapps.data.model.article.DataItem
 import com.cnd.birdapps.databinding.ItemArticleBinding
 import java.util.*
@@ -39,11 +44,24 @@ class ArticleAdapter(private var listData: ArrayList<DataItem>) :
 
     override fun getItemCount(): Int = filterList.size
 
+
     inner class ViewHolder(var binding: ItemArticleBinding) : RecyclerView.ViewHolder(
         binding.root
     ) {
+
         fun bind(dataItem: DataItem) {
             binding.speciesName.text = dataItem.birdSpecies.name
+            var statusPublish = ""
+            if (dataItem.publish) {
+                statusPublish= "Publish"
+                binding.tagStatus.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.purple)
+//                binding.status.setTextColor(ContextCompat.getColor(itemView.context, R.color.purple))
+            } else {
+                statusPublish ="Pending"
+                binding.tagStatus.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.red)
+//                binding.status.setTextColor(ContextCompat.getColor(itemView.context, R.color.red))
+            }
+            binding.status.text = statusPublish
             Glide.with(itemView.context)
                 .load(dataItem.image)
                 .into(binding.img)
@@ -88,7 +106,7 @@ class ArticleAdapter(private var listData: ArrayList<DataItem>) :
             filterList = filterResults.values as ArrayList<DataItem>
             if (filterList.isNullOrEmpty()) {
                 onItemClickCallback.onStatus("")
-            } else{
+            } else {
                 onItemClickCallback.onStatus("ada")
             }
             notifyDataSetChanged()

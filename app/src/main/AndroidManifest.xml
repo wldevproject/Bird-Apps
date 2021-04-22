@@ -20,7 +20,10 @@
         android:theme="@style/Theme.BirdApps"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.view.kategory.ListKategoriActivity"></activity>
+        <activity
+            android:name=".ui.view.morphology.AnimasUrlActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.view.kategory.ListKategoriActivity" />
         <activity
             android:name=".ui.view.kategory.KategoryActivity"
             android:screenOrientation="portrait" />

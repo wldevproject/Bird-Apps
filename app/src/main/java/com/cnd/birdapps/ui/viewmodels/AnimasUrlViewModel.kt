@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cnd.birdapps.data.api.NetworkClient
-import com.cnd.birdapps.data.model.article.ArticleResponse
-import com.cnd.birdapps.data.model.article.DataItem
+import com.cnd.birdapps.data.model.url3d.DataItem
+import com.cnd.birdapps.data.model.url3d.Url3dResponse
 import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.Call
@@ -17,7 +17,7 @@ import retrofit2.Response
  ** Author @JoeFachrizal
  ** Happy Code...
  **/
-class ArticleViewModel : ViewModel() {
+class AnimasUrlViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     private val _item = MutableLiveData<ArrayList<DataItem>>()
@@ -28,10 +28,10 @@ class ArticleViewModel : ViewModel() {
     val status: LiveData<String>
         get() = _status
 
-    internal fun getData(publish : Boolean) {
-        NetworkClient().apiHttp().apiGetArticle(publish).enqueue(object : Callback<ArticleResponse> {
+    internal fun getData() {
+        NetworkClient().apiHttp().apiGet3dUrl().enqueue(object : Callback<Url3dResponse> {
             override fun onResponse(
-                call: Call<ArticleResponse>, response: Response<ArticleResponse>
+                call: Call<Url3dResponse>, response: Response<Url3dResponse>
             ) {
                 if (response.body()?.status == SUCCESS) {
                     if (response.body()?.data != null) {
@@ -45,60 +45,11 @@ class ArticleViewModel : ViewModel() {
 
             }
 
-            override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
+            override fun onFailure(call: Call<Url3dResponse>, t: Throwable) {
                 _status.value = "Tidak Ada Koneksi"
             }
         })
     }
-
-    internal fun getDataQuery(id: Int) {
-        NetworkClient().apiHttp().apiGetArticleQuery(id, true)
-            .enqueue(object : Callback<ArticleResponse> {
-                override fun onResponse(
-                    call: Call<ArticleResponse>, response: Response<ArticleResponse>
-                ) {
-                    if (response.body()?.status == SUCCESS) {
-                        if (response.body()?.data != null) {
-                            _item.value = response.body()?.data
-                        } else {
-                            _status.value = "Data Tidak Ditemukan"
-                        }
-                    } else {
-                        _status.value = "Akses Bermasalah"
-                    }
-
-                }
-
-                override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
-                    _status.value = "Tidak Ada Koneksi"
-                }
-            })
-    }
-
-    internal fun getDataUserId(id: Int) {
-        NetworkClient().apiHttp().apiGetArticleUserId(id)
-            .enqueue(object : Callback<ArticleResponse> {
-                override fun onResponse(
-                    call: Call<ArticleResponse>, response: Response<ArticleResponse>
-                ) {
-                    if (response.body()?.status == SUCCESS) {
-                        if (response.body()?.data != null) {
-                            _item.value = response.body()?.data
-                        } else {
-                            _status.value = "Data Tidak Ditemukan"
-                        }
-                    } else {
-                        _status.value = "Akses Bermasalah"
-                    }
-
-                }
-
-                override fun onFailure(call: Call<ArticleResponse>, t: Throwable) {
-                    _status.value = "Tidak Ada Koneksi"
-                }
-            })
-    }
-
 
     override fun onCleared() {
         super.onCleared()

@@ -7,8 +7,9 @@ package com.cnd.birdapps.utils
  **/
 object ConsData {
     const val SUCCESS = "success"
+    const val PUBLIK = 0
     const val ADMIN = 1
-    const val USER = 0
+    const val USER = 2
 
     var stateLogin = 0
     var role: Int = 0

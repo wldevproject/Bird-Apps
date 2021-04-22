@@ -17,8 +17,8 @@ import com.cnd.birdapps.utils.ConsData.stateKategory
 import java.util.ArrayList
 
 class KategoryActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityKategoryBinding
     private val viewModel: KategoryViewModel by viewModels()
+    private lateinit var binding: ActivityKategoryBinding
     private lateinit var adapter: KategoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,7 +1,5 @@
 package com.cnd.birdapps.ui.view.about
 
-import android.graphics.Color
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +9,6 @@ import androidx.core.content.ContextCompat
 import com.cnd.birdapps.R
 import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.FragmentAboutBinding
-import com.cnd.birdapps.ui.viewmodels.AboutViewModel
 import org.greenrobot.eventbus.EventBus
 
 class AboutFragment : Fragment() {
@@ -56,5 +53,10 @@ class AboutFragment : Fragment() {
                 about.visibility = View.VISIBLE
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

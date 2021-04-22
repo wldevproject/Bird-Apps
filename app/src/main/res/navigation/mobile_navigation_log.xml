@@ -57,4 +57,5 @@
         android:label="activity_article"
         tools:layout="@layout/activity_my_article" />
 
+
 </navigation>

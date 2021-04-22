@@ -15,6 +15,8 @@ import com.cnd.birdapps.data.model.article.DataItem
 import com.cnd.birdapps.databinding.ActivityMyArticleBinding
 import com.cnd.birdapps.ui.adapter.ArticleAdapter
 import com.cnd.birdapps.ui.viewmodels.ArticleViewModel
+import com.cnd.birdapps.utils.ConsData.ADMIN
+import com.cnd.birdapps.utils.ConsData.stateLogin
 import com.cnd.birdapps.utils.ConsData.userID
 
 class MyArticleActivity : AppCompatActivity() {
@@ -47,7 +49,15 @@ class MyArticleActivity : AppCompatActivity() {
     }
 
     private fun onGetData() {
-        viewModel.getDataUserId(userID)
+        if (stateLogin == ADMIN) {
+            val title = "Artikel Seluruh Akun"
+            binding.textTitle.text = title
+            viewModel.getAllData()
+        } else {
+            viewModel.getDataUserId(userID)
+        }
+
+
 
         viewModel.items.observe(this, Observer {
             onShowData(it)
@@ -66,14 +76,13 @@ class MyArticleActivity : AppCompatActivity() {
         adapter = ArticleAdapter(listItems)
         binding.articleList.adapter = adapter
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.loading.loading.visibility = View.GONE
-        }, 1000)
+        onLoading()
 
         adapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallback {
             override fun onClicked(data: DataItem) {
                 val intent = Intent(this@MyArticleActivity, DetailArticleActivity::class.java)
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
+                intent.putExtra(DetailArticleActivity.AKSES, "admin")
                 startActivity(intent)
             }
 
@@ -85,6 +94,18 @@ class MyArticleActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        viewModel.getDataUserId(userID)
+        if (stateLogin == ADMIN) {
+            binding.loading.loading.visibility = View.VISIBLE
+            viewModel.getAllData()
+        } else {
+            binding.loading.loading.visibility = View.VISIBLE
+            viewModel.getDataUserId(userID)
+        }
+    }
+
+    fun onLoading(){
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.loading.loading.visibility = View.GONE
+        }, 1000)
     }
 }

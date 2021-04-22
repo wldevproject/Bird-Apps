@@ -24,7 +24,7 @@ class SignInViewModel : ViewModel() {
         get() = _item
 
     internal fun postDataLog(userName: String, password: String) {
-        NetworkClient().apiHttp().apiLoginUserLog(
+        NetworkClient().apiHttp().apiPostLoginUser(
             userName, password
         ).enqueue(object : Callback<UserLogResponse> {
             override fun onResponse(

@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.cnd.birdapps.R
 import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.ActivityMainMenuBinding
+import com.cnd.birdapps.utils.ConsData.PUBLIK
 import com.cnd.birdapps.utils.ConsData.USER
 import com.cnd.birdapps.utils.ConsData.stateLogin
 import org.greenrobot.eventbus.EventBus
@@ -25,12 +26,12 @@ class MainMenuActivity : AppCompatActivity() {
         binding.run {
             navView.setupWithNavController(navController)
         }
-        stateLogin = USER
+        stateLogin = PUBLIK
     }
 
     private fun hideBottomAppBar(hideMenu: Boolean) {
         binding.run {
-            if (hideMenu)navView.visibility = View.GONE
+            if (hideMenu) navView.visibility = View.GONE
             if (!hideMenu) navView.visibility = View.VISIBLE
         }
     }

@@ -1,30 +1,30 @@
 package com.cnd.birdapps.ui.view.home
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.cnd.birdapps.R
 import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.FragmentHomeBinding
 import com.cnd.birdapps.ui.view.kategory.KategoryActivity
-import com.cnd.birdapps.ui.viewmodels.HomeViewModel
 import com.cnd.birdapps.utils.ConsData.ADMIN
 import com.cnd.birdapps.utils.ConsData.KAT_ANIS
 import com.cnd.birdapps.utils.ConsData.KAT_BEO
 import com.cnd.birdapps.utils.ConsData.KAT_JALAK
 import com.cnd.birdapps.utils.ConsData.KAT_LOVEBIRD
 import com.cnd.birdapps.utils.ConsData.KAT_MORE
+import com.cnd.birdapps.utils.ConsData.PUBLIK
+import com.cnd.birdapps.utils.ConsData.USER
 import com.cnd.birdapps.utils.ConsData.stateKategory
 import com.cnd.birdapps.utils.ConsData.stateLogin
 import org.greenrobot.eventbus.EventBus
 
 class HomeFragment : Fragment() {
-    private lateinit var viewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -33,7 +33,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -89,25 +88,24 @@ class HomeFragment : Fragment() {
 
 
     private fun onMorphology() {
-        if (stateLogin == ADMIN) findNavController().navigate(R.id.morphologyFragment2)
-        else findNavController().navigate(R.id.morphologyFragment)
+        if (stateLogin == ADMIN || stateLogin == USER) findNavController().navigate(R.id.morphologyFragment2)
+        if (stateLogin == PUBLIK) findNavController().navigate(R.id.morphologyFragment)
     }
 
     private fun onMastering() {
-        if (stateLogin == ADMIN) findNavController().navigate(R.id.masteringFragment2)
-        else findNavController().navigate(R.id.masteringFragment)
+        if (stateLogin == ADMIN || stateLogin == USER) findNavController().navigate(R.id.masteringFragment2)
+        if (stateLogin == PUBLIK) findNavController().navigate(R.id.masteringFragment)
     }
 
     private fun onArticle() {
-        if (stateLogin == ADMIN) findNavController().navigate(R.id.articleFragment2)
-        else findNavController().navigate(R.id.articleFragment)
+        if (stateLogin == ADMIN || stateLogin == USER) findNavController().navigate(R.id.articleFragment2)
+        if (stateLogin == PUBLIK) findNavController().navigate(R.id.articleFragment)
     }
 
     private fun onAbout() {
-        if (stateLogin == ADMIN) findNavController().navigate(R.id.aboutFragment2)
-        else findNavController().navigate(R.id.aboutFragment)
+        if (stateLogin == ADMIN || stateLogin == USER) findNavController().navigate(R.id.aboutFragment2)
+        if (stateLogin == PUBLIK) findNavController().navigate(R.id.aboutFragment)
     }
-
 
     override fun onStart() {
         super.onStart()

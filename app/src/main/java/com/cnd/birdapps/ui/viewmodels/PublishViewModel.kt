@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.cnd.birdapps.data.api.NetworkClient
 import com.cnd.birdapps.data.model.url3d.DataItem
-import com.cnd.birdapps.data.model.url3d.Url3dResponse
-import com.cnd.birdapps.utils.ConsData.SUCCESS
 import io.reactivex.disposables.CompositeDisposable
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,36 +16,47 @@ import retrofit2.Response
  ** Author @JoeFachrizal
  ** Happy Code...
  **/
-class AnimasUrlViewModel : ViewModel() {
+class PublishViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
-
-    private val _item = MutableLiveData<ArrayList<DataItem>>()
-    val items: LiveData<ArrayList<DataItem>>
-        get() = _item
 
     private val _status = MutableLiveData<String>()
     val status: LiveData<String>
         get() = _status
 
-    internal fun getData() {
-        NetworkClient().apiHttp().apiGet3dUrl().enqueue(object : Callback<Url3dResponse> {
+    internal fun postData(id: String, publish: Boolean) {
+        NetworkClient().apiHttp().apiPutArticle(
+            id, publish
+        ).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
-                call: Call<Url3dResponse>, response: Response<Url3dResponse>
+                call: Call<ResponseBody>, response: Response<ResponseBody>
             ) {
-                if (response.body()?.status == SUCCESS) {
-                    if (response.body()?.data != null) {
-                        _item.value = response.body()?.data
-                    } else {
-                        _status.value = "Data Tidak Ditemukan"
-                    }
+                if (response.isSuccessful) {
+                    _status.value = SUCCESS_MSG
                 } else {
-                    _status.value = "Akses Bermasalah"
+                    _status.value = ERROR_MSG
                 }
-
             }
 
-            override fun onFailure(call: Call<Url3dResponse>, t: Throwable) {
-                _status.value = "Tidak Ada Koneksi"
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                _status.value = NO_CONNECTION_MSG
+            }
+        })
+    }
+
+    internal fun deletData(id: Int) {
+        NetworkClient().apiHttp().deleteArticle(id).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(
+                call: Call<ResponseBody>, response: Response<ResponseBody>
+            ) {
+                if (response.isSuccessful) {
+                    _status.value = DELETE_MSG
+                } else {
+                    _status.value = ERROR_MSG
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                _status.value = NO_CONNECTION_MSG
             }
         })
     }
@@ -54,5 +64,12 @@ class AnimasUrlViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.dispose()
+    }
+
+    companion object {
+        private const val NO_CONNECTION_MSG = "Tidak Ada Koneksi"
+        private const val ERROR_MSG = "Artikel Gagal diperbaharui"
+        private const val SUCCESS_MSG = "Artikel berhasil diperbaharui"
+        private const val DELETE_MSG = "Artikel berhasil dihapus"
     }
 }

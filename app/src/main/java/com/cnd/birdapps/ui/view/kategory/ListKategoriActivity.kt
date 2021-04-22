@@ -83,7 +83,7 @@ class ListKategoriActivity : AppCompatActivity() {
             }
 
             override fun onStatus(data: String) {
-                
+
             }
 
         })

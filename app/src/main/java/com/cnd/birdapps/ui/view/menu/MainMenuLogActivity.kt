@@ -9,6 +9,7 @@ import com.cnd.birdapps.R
 import com.cnd.birdapps.data.model.MessageEvent
 import com.cnd.birdapps.databinding.ActivityMainMenuLogBinding
 import com.cnd.birdapps.utils.ConsData.ADMIN
+import com.cnd.birdapps.utils.ConsData.role
 import com.cnd.birdapps.utils.ConsData.stateLogin
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -25,7 +26,7 @@ class MainMenuLogActivity : AppCompatActivity() {
         binding.run {
             navView.setupWithNavController(navController)
         }
-        stateLogin = ADMIN
+        stateLogin = role
     }
 
     private fun hideBottomAppBar(hideMenu: Boolean) {

@@ -1,8 +1,8 @@
 package com.cnd.birdapps.data.api
 
 import com.cnd.birdapps.data.model.article.ArticleResponse
-import com.cnd.birdapps.data.model.article.User
 import com.cnd.birdapps.data.model.kategory.KategoryResponse
+import com.cnd.birdapps.data.model.url3d.Url3dResponse
 import com.cnd.birdapps.data.model.user.UserResponse
 import com.cnd.birdapps.data.model.userLogin.UserLogResponse
 import okhttp3.MultipartBody
@@ -26,6 +26,12 @@ interface Routes {
     @GET("birdSpecies")
     fun apiGetBirdSpecies(): Call<KategoryResponse>
 
+    @GET("3d")
+    fun apiGet3dUrl(): Call<Url3dResponse>
+
+    @GET("article")
+    fun apiGetAllArticle(): Call<ArticleResponse>
+
     @GET("article")
     fun apiGetArticle(
         @Query("publish") publish: Boolean
@@ -41,6 +47,16 @@ interface Routes {
     fun apiGetArticleUserId(
         @Query("userId") userId: Int
     ): Call<ArticleResponse>
+
+    @FormUrlEncoded
+    @PUT("article/{id}")
+    fun apiPutArticle(
+        @Path("id") id: String,
+        @Field("publish") publish: Boolean,
+    ): Call<ResponseBody>
+
+    @DELETE("article/{id}")
+    fun deleteArticle(@Path("id") id: Int): Call<ResponseBody>
 
     @Multipart
     @POST("article")
@@ -62,7 +78,7 @@ interface Routes {
 
     @FormUrlEncoded
     @POST("user/login")
-    fun apiLoginUserLog(
+    fun apiPostLoginUser(
         @Field("username") username: String,
         @Field("password") password: String
     ): Call<UserLogResponse>
