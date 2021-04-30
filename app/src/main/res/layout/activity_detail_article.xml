@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/img_banner"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:contentDescription="@string/image_view"
             android:scaleType="center"
@@ -21,7 +21,8 @@
             app:layout_constraintBottom_toTopOf="@+id/icon_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <View
             android:id="@+id/view_up"
@@ -38,7 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:background="@drawable/bg_gradien_down"
-            app:layout_constraintBottom_toTopOf="@+id/icon_up"
+            app:layout_constraintBottom_toBottomOf="@+id/img_banner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -53,7 +54,7 @@
             android:theme="@style/poppinsSemibold"
             app:layout_constraintEnd_toStartOf="@+id/right"
             app:layout_constraintStart_toStartOf="@+id/left"
-            app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+            app:layout_constraintTop_toBottomOf="@+id/icon_up" />
 
         <TextView
             android:id="@+id/txt_kategori"
@@ -188,10 +189,13 @@
             android:id="@+id/update_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
             android:text="10 octo"
             android:textSize="@dimen/text_size_10"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/left"
-            app:layout_constraintTop_toBottomOf="@+id/txt_update" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_update"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -232,6 +236,7 @@
             android:id="@+id/btn_delete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/red"
             android:letterSpacing="0"
             android:text="Hapus"
@@ -239,11 +244,9 @@
             android:textSize="@dimen/text_size_10"
             android:visibility="gone"
             app:cornerRadius="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottom"
             app:layout_constraintEnd_toStartOf="@+id/left_photo"
             app:layout_constraintStart_toStartOf="@+id/left"
-            app:layout_constraintTop_toBottomOf="@+id/update_date"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/update_date" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left1"
@@ -281,13 +284,6 @@
             app:layout_constraintGuide_percent="0.95" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
-
-        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -299,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
+            app:layout_constraintGuide_begin="350dp" />
 
         <include
             android:id="@+id/loading"

@@ -12,6 +12,10 @@ import com.bumptech.glide.Glide
 import com.cnd.birdapps.data.model.article.DataItem
 import com.cnd.birdapps.databinding.ActivityDetailArticleBinding
 import com.cnd.birdapps.ui.viewmodels.PublishViewModel
+import com.cnd.birdapps.utils.ConsData.ADMIN
+import com.cnd.birdapps.utils.ConsData.USER
+import com.cnd.birdapps.utils.ConsData.USER_ADD
+import com.cnd.birdapps.utils.ConsData.role
 
 class DetailArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailArticleBinding
@@ -31,25 +35,38 @@ class DetailArticleActivity : AppCompatActivity() {
         val item = intent.getParcelableExtra<DataItem>(EXTRA_DATA_DETAIL)
         val akses = intent.getStringExtra(AKSES)
 
+//        Log.d("akses --->", akses.toString())
+//        Log.d("item --->", item.toString())
+
         Glide.with(this)
             .load(item?.image)
+//            .apply(RequestOptions().override(600, 600))
             .into(binding.imgBanner)
         binding.birdName.text = item?.birdSpecies?.name
         binding.kategori.text = item?.birdSpecies?.name
         binding.userName.text = item?.user?.username
         if (item?.publish == true) {
             status = "Publish"
-            if (akses == "admin") {
-                binding.btnPublish.text = "Pending"
-                onUpdate(item.id.toString(), false)
+            if (role == ADMIN || akses == USER_ADD) {
+                ondelete(item.id.toString())
+                if (role == ADMIN) {
+                    binding.btnPublish.text = "Pending"
+                    onUpdate(item.id.toString(), false)
+                }
             }
         } else {
             status = "Pending"
-            if (akses == "admin") {
-                binding.btnPublish.text = "Publish"
-                onUpdate(item?.id.toString(), true)
+            if (role == ADMIN || akses == USER_ADD) {
+                ondelete(item?.id.toString())
+                if (role == ADMIN) {
+                    binding.btnPublish.text = "Publish"
+                    onUpdate(item?.id.toString(), true)
+                }
             }
         }
+
+        refresh()
+
         binding.publish.text = status
         binding.description.text = item?.description
         binding.updateDate.text = item?.createdAt
@@ -64,15 +81,10 @@ class DetailArticleActivity : AppCompatActivity() {
         binding.btnPublish.setOnClickListener {
             viewModel.postData(id, publish)
             binding.loading.loading.visibility = View.VISIBLE
-
         }
+    }
 
-        binding.btnDelete.visibility = View.VISIBLE
-        binding.btnDelete.setOnClickListener {
-            viewModel.deletData(id.toInt())
-            binding.loading.loading.visibility = View.VISIBLE
-        }
-
+    private fun refresh() {
         viewModel.status.observe(this, Observer {
             Handler(Looper.getMainLooper()).postDelayed({
                 binding.loading.loading.visibility = View.GONE
@@ -80,6 +92,14 @@ class DetailArticleActivity : AppCompatActivity() {
             }, 1000)
             showNotif(it)
         })
+    }
+
+    private fun ondelete(id: String) {
+        binding.btnDelete.visibility = View.VISIBLE
+        binding.btnDelete.setOnClickListener {
+            viewModel.deletData(id.toInt())
+            binding.loading.loading.visibility = View.VISIBLE
+        }
     }
 
     private fun showNotif(message: String) {

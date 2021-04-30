@@ -1,5 +1,6 @@
 package com.cnd.birdapps.ui.view.profil
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cnd.birdapps.databinding.FragmentProfilBinding
+import com.cnd.birdapps.ui.view.menu.MainMenuActivity
 import com.cnd.birdapps.ui.viewmodels.ProfilViewModel
 import com.cnd.birdapps.utils.ConsData.ADMIN
 import com.cnd.birdapps.utils.ConsData.USER
@@ -44,6 +46,12 @@ class ProfilFragment : Fragment() {
             }
 
             status.text = dataStatus
+
+            btnSignOut.setOnClickListener {
+                val i = Intent(requireContext(), MainMenuActivity::class.java)
+                startActivity(i)
+                activity?.finishAffinity()
+            }
         }
     }
 

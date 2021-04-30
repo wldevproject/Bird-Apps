@@ -82,7 +82,7 @@ class MyArticleActivity : AppCompatActivity() {
             override fun onClicked(data: DataItem) {
                 val intent = Intent(this@MyArticleActivity, DetailArticleActivity::class.java)
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
-                intent.putExtra(DetailArticleActivity.AKSES, "admin")
+                intent.putExtra(DetailArticleActivity.AKSES, "3")
                 startActivity(intent)
             }
 

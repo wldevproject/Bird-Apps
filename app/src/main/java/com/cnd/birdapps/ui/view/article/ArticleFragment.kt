@@ -85,6 +85,8 @@ class ArticleFragment : Fragment() {
                 val intent = Intent(requireContext(), DetailArticleActivity::class.java)
                 intent.putExtra(DetailArticleActivity.EXTRA_DATA_DETAIL, data)
                 startActivity(intent)
+
+//                Toast.makeText(requireContext(), "$data", Toast.LENGTH_SHORT).show()
             }
 
             override fun onStatus(data: String) {

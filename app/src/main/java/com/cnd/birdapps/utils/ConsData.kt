@@ -10,6 +10,7 @@ object ConsData {
     const val PUBLIK = 0
     const val ADMIN = 1
     const val USER = 2
+    const val USER_ADD = "3"
 
     var stateLogin = 0
     var role: Int = 0
